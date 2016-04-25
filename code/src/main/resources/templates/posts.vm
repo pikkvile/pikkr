@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Oakenphoto</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href=#springUrl("/bower_components/bootstrap/dist/css/bootstrap.min.css") type="text/css" media="screen" />
+        <link rel="stylesheet" href=#springUrl("/css/style.css") type="text/css" media="screen" />
+        <link rel="stylesheet" href=#springUrl("/css/gallery.css") type="text/css" media="screen" />
+        <script src=#springUrl("/bower_components/jquery/dist/jquery.min.js")></script>
+        <script src=#springUrl("/bower_components/bootstrap/dist/js/bootstrap.min.js")></script>
+        <script>
+            $(window).load(function() {
+                $('.content').css('visibility', 'visible');
+            })
+        </script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row wrapper">
+
+                <!-- sidebar -->
+                #parse("sidebar.vm")
+
+                <!-- content -->
+                <div class="content">
+
+                    #foreach($post in $posts.content)
+                        #if ($post.type == "IMAGE")
+                            #parse("image_post.vm")
+                        #end
+                        #if ($post.type == "IMAGES")
+                            #parse("images_post.vm")
+                        #end
+                        #if ($post.type == "GALLERY")
+                            #parse("gallery_post.vm")
+                        #end
+                    #end
+
+                    <!-- navigator -->
+                    #set($pageOfData = $posts)
+                    #parse("navigator.vm")
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

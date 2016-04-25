@@ -1,0 +1,14 @@
+<div class="sidebar">
+    <div class="logo">
+        <a href="/">
+            <img style="height: 100px;" src=#springUrl("/images/leaf.png") />
+        </a>
+    </div>
+
+
+    <div class="main-menu">
+        #foreach($category in $categories)
+            <p><a #if($active == $category.title) class="active" #end href="/c/$category.title">$category.title</a></p>
+        #end
+    </div>
+</div>

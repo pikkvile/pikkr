@@ -1,0 +1,8 @@
+<div class="navigator">
+    #if ($pageOfData.first == "false")
+    <a href="?page=$math.sub($pageOfData.number)" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i></a>
+    #end
+    #if ($pageOfData.last == "false")
+    <a href="?page=$math.add($pageOfData.number, 2)" class="btn btn-default pull-right"><i class="glyphicon glyphicon-arrow-right"></i></a>
+    #end
+</div>

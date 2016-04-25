@@ -1,0 +1,25 @@
+<div class="post gallery">
+    <div class="info">
+        <h4>$post.title</h4>
+        <p class="post-date">$date.format('yyyy-MM-dd', $post.created)</p>
+    </div>
+    #set($gid = $math.random(1,1000))
+    <div id="gallery-$gid" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            #foreach($photo in $post.photos)
+                <li data-target="#gallery-$gid" data-slide-to="$photo.position"
+                    #if($photo.position == 0) class="active" #end>
+                    <img src="$filesUrlBase$photo.name"/>
+                </li>
+            #end
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            #foreach($photo in $post.photos)
+                <div #if($photo.position == 0) class="item active" #end
+                     #if($photo.position != 0) class="item" #end>
+                    <a data-slide="next" href="#gallery-$gid"><img src="$filesUrlBase$photo.name" /></a>
+                </div>
+            #end
+        </div>
+    </div>
+</div>

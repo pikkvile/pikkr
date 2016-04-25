@@ -1,0 +1,10 @@
+<div class="post images">
+    <div class="info">
+        <h4>$post.title</h4>
+        <p class="post-date">$date.format('yyyy-MM-dd', $post.created)</p>
+    </div>
+    #foreach($photo in $post.photos)
+        <img #if($photo.position < $post.photos.size() - 1) class="mr" #end src="$filesUrlBase$photo.name" />
+    #end
+    <div class="clearfix"></div>
+</div>

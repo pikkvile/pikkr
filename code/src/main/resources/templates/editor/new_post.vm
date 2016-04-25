@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Oakenphoto Editor</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href=#springUrl("/bower_components/bootstrap/dist/css/bootstrap.min.css") type="text/css" media="screen" />
+        <script src=#springUrl("/bower_components/jquery/dist/jquery.min.js")></script>
+        <script src=#springUrl("/js/editor.js")></script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h1>new post</h1>
+
+                    <form method="post" action="/editor/new_post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" name="title" class="form-control" placeholder="title"/>
+                        </div>
+                        <div class="form-group">
+                            <select name="type" class="form-control">
+                                #foreach($type in $types)
+                                <option value="$type">$type</option>
+                                #end
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="categoryId" class="form-control">
+                                #foreach($cat in $cats)
+                                    <option value="$cat.id">$cat.title</option>
+                                #end
+                            </select>
+                        </div>
+
+                        <div class="form-group"><input type="file" name="file1" class="form-control" /></div>
+                        <div class="form-group text-right">
+                            <button type="button" id="add-image" data-last-position="1" class="btn btn-default">add image</button>
+                        </div>
+
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-primary">create post</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <a href="/">pikkr</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

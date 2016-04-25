@@ -1,0 +1,8 @@
+/code/.idea
+/code/.mvn
+/code/target
+/code/mvnw
+/code/mvnw.cmd
+/code/pikkr.iml
+/code/src/main/resources/static/bower_components
+/markup/bower_components
